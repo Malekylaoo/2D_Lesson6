@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyAnimations : MonoBehaviour
 {
+    private const string _IsMoving = "isMoving";
+
     private Animator _animator;
-    private const string _isMoving = "isMoving";
 
     private void Start()
     {
@@ -14,7 +15,7 @@ public class EnemyAnimations : MonoBehaviour
 
     public void Walk(bool isMoving)
     {
-        _animator.SetBool(_isMoving, isMoving);
+        _animator.SetBool(_IsMoving, isMoving);
     }
 
 }

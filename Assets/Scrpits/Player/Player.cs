@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerAnimations))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private GroundChecker _groundChecker;
+    [SerializeField] private int _moneyCount;
 
     private PlayerInput _playerInput;
     private Vector2 _moveDirection;
     private SpriteRenderer _spriteRenderer;
     private PlayerAnimations _animation;
     private Rigidbody2D _rigidBody;
-    [SerializeField] private int _moneyCount;
-
-    public UnityAction CoinTaken;
 
     private void Awake()
     {

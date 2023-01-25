@@ -7,6 +7,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Transform[] _spawnPointsCoin;
     [SerializeField] private Coin _coin;
 
+    private WaitForSeconds _waitForSeconds = new WaitForSeconds(1);
+
     private void Start()
     {
         StartCoroutine(Spawn());
@@ -18,7 +20,7 @@ public class Spawner : MonoBehaviour
         {
             Instantiate(_coin, _spawnPointsCoin[i].transform.position, Quaternion.identity);
 
-            yield return new WaitForSeconds(1);
+            yield return _waitForSeconds;
         }
     }
 }

@@ -7,11 +7,12 @@ public class PlayerAnimations : MonoBehaviour
 {
     [SerializeField] private GroundChecker _groundChecker;
 
+    private const string _Attack = "Attack";
+    private const string _Walk = "MoveX";
+    private const string _Grounded = "isGrounded";
+    private const string _Jump = "Jump";
+
     private Animator _animator;
-    private const string _attack = "Attack";
-    private const string _walk = "MoveX";
-    private const string _grounded = "isGrounded";
-    private const string _jump = "Jump";
 
     private void Awake()
     {
@@ -20,21 +21,21 @@ public class PlayerAnimations : MonoBehaviour
 
     public void Jump()
     {
-        _animator.Play(_jump);
+        _animator.Play(_Jump);
     }
 
     public void Attack()
     {
-        _animator.Play(_attack);
+        _animator.Play(_Attack);
     }
 
     public void Walk(Vector2 direction)
     {
-        _animator.SetFloat(_walk, Mathf.Abs(direction.x));
+        _animator.SetFloat(_Walk, Mathf.Abs(direction.x));
     }
 
     public void ChangeIsGrounded(bool isGrounded)
     {
-        _animator.SetBool(_grounded, isGrounded);
+        _animator.SetBool(_Grounded, isGrounded);
     }
 }
